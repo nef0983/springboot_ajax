@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function findAll(restful){
+	
+	
+	var req = new XMLHttpRequest();// js原生 XMLHttpRequest 與伺服器連線
+	req.open("get","http://localhost:8080/"+restful) //設定連線
+	
+	req.onload=function(){	//偵測事件結束
+		
+		var content =document.getElementById("content")
+		content.innerHTML=this.responseText;
+
+	
+	}
+	req.send();//送出連線
+}
+
+function test(){
+	
+	alert("test");
+}
+
+</script>
+
+</head>
+<body>
+
+	<div>
+<span onclick="findAll('findall');"> 所有</span>
+
+<span onclick="test();">測試</span>
+	</div>
+	
+	
+	<div id="content">	</div>
+	
+</body>
+</html>
