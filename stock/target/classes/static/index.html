@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+    	
+    	$("#test").click(function(){
+    		alert("welcome");
+    	});
+    	
+    	$("#show").click(function(){
+    		
+    		$.ajax({
+    			type: 'GET',
+    			url: 'http://localhost:8080/findall',
+    			success: function(data){
+    				$("#content").html(data);
+    		    	}
+    			 })
+    			 
+    		});
+    		
+    	});
+    	
+    
+    
+    
+
+/*function findAll(restful){
+	
+	var req = new XMLHttpRequest();// js原生 XMLHttpRequest 與伺服器連線
+	req.open("get","http://localhost:8080/"+restful) //設定連線
+	
+	req.onload=function(){	//偵測事件結束
+		
+		var content =document.getElementById("content")
+		content.innerHTML=this.responseText;
+			}
+	req.send();//送出連線
+} 
+*/
+
+
+
+
+</script>
+
+</head>
+<body>
+
+	<div>
+		<span id="all"> 所有</span>
+		 
+		 <span	id="show"> JquerY</span>
+	</div>
+
+
+	<div id="content"></div>
+
+</body>
+</html>
